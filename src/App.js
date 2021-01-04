@@ -1,18 +1,40 @@
 import './App.css';
-import React from 'react';
-import Profile from './Component/Profile/Profile';
+import React, { Component } from 'react';
 
-function App() {
 
-  const handleName =(fname)=>{
-   
-    alert(`hello world at iam ${fname}`)}
+class App extends Component  {
+ state={
+  fullname:"badr ali",
+  profession:"mobile software ",
+  bio:"Engenner",
+  img:"/imageInPublic.png",
+  x: false
+
+ }
+ handleshow =()=>{
+this.setState({x:true})
+console.log(this.state.x)
+ }
+ showresult =()=>{
+   if(this.state.x===true){
+     return(
+      console.log(this.state.fullname)
+      
+     )
+   }
+ }
+
+render(){
   return (
     <div className="App">
-     <Profile  fullname="badr ali"  bio="Engenner" profession="mobile software " img="/imageInPublic.png" handlclick={handleName} />
+      
+    <button onClick={this.handleshow}>click</button>
+    {this.showresult}   
+    
+    
     </div>
   );
-}
+}}
 
 
 export default App;
